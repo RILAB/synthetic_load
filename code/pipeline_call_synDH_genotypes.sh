@@ -20,7 +20,7 @@ cat calls_angsd/filelists/TeoParents.filelist calls_angsd/filelists/NAMparents.f
 
 # get all sites that can be called in the parents
 
-code/allelefreq_angsd.sh calls_angsd/filelists/parents.filelist "-r 10: -P 32" calls_angsd/all_variant_sites
+code/allelefreq_angsd.sh calls_angsd/filelists/parents.filelist "-r 10: -P 32 --SNP_pval 0.000001" calls_angsd/all_variant_sites
 
 # extract list of sites that should be called in individual populations
 gunzip -c calls_angsd/all_variant_sites.mafs.gz |awk '{print $1 "\t" $2}' | sed -e '1d' > calls_angsd/sites/sites_to_call.txt
